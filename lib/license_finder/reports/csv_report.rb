@@ -13,6 +13,7 @@ module LicenseFinder
 
     def to_s
       CSV.generate(col_sep: self.class::COMMA_SEP) do |csv|
+        csv << @columns
         sorted_dependencies.each do |s|
           csv << format_dependency(s)
         end
